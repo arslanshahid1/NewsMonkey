@@ -1,6 +1,7 @@
 import React, { useEffect,useState } from 'react'
 import Loader from './Loader';
 import NewsItem from './NewsItem'
+import PropTypes from 'prop-types'
 import InfiniteScroll from "react-infinite-scroll-component";
 
 const News = (props)=> {
@@ -28,7 +29,7 @@ const News = (props)=> {
         
     }
 
-    const fetchMoreData=async()=>{
+    const fetchMoreData= async()=>{
         let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apikey}&page=${page+1}&pageSize=${props.pageSize}`;
         setPage(page+1)
         let data = await fetch(url);
@@ -86,4 +87,15 @@ const News = (props)=> {
     
 }
 
+News.defaultProps = {
+    country: 'in',
+    pageSize: 6,
+    category: 'general',
+}
+
+News.propTypes = {
+    country: PropTypes.string,
+    pageSize: PropTypes.number,
+    category: PropTypes.string,
+}
 export default News

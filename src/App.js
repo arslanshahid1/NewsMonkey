@@ -18,7 +18,7 @@ const App =()=> {
           <Navbar />
           <Switch>
             <Route exact path="/"> <News pageSize={6} country="in" category="general" key="general" apikey={apikey} /> </Route>
-            <Route exact path="/business"> <News pageSize={6} country="in" category="business" key="general"apikey={apikey} /> </Route>
+            <Route exact path="/business"> <News pageSize={6} country="in" category="business" key="general" apikey={apikey} /> </Route>
             <Route exact path="/sports"> <News pageSize={6} country="in" category="sports" key="sports" apikey={apikey}/> </Route>
             <Route exact path="/entertainment"> <News pageSize={6} country="in" category="entertainment" key="entertainment" apikey={apikey} /> </Route>
             <Route exact path="/technology"> <News pageSize={6} country="in" category="technology" key="technology" apikey={apikey}/> </Route>
