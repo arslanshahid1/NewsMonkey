@@ -9,13 +9,14 @@ const News = (props)=> {
     const[loading,setLoading]=useState(true);
     const[totalResults,setTotalResults]=useState(0);
 
+
     useEffect(() => {
        updateNews();
-      //eslint-disable-next-line;
+      // eslint-disable-next-line;
     },[])
 
     const updateNews= async()=> {
-        let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=d8b176050b0f4f77b9aa8b9b8f67e0c3&page=${page}&pageSize=${props.pageSize}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apikey}&page=${page}&pageSize=${props.pageSize}`;
         setLoading(true);
 
         let data = await fetch(url);
@@ -28,7 +29,7 @@ const News = (props)=> {
     }
 
     const fetchMoreData=async()=>{
-        let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=d8b176050b0f4f77b9aa8b9b8f67e0c3&page=${page+1}&pageSize=${props.pageSize}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apikey}&page=${page+1}&pageSize=${props.pageSize}`;
         setPage(page+1)
         let data = await fetch(url);
         let parsedData = await data.json();
